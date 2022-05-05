@@ -52,11 +52,9 @@ object QuoteVerifierCmd {
     }
 
     def verifyQuote(quote: Array[Byte]): Int = {
-        val number = new BigInteger(quote)
-        val zero = new BigInteger("0")
-        // If the quoteOutput is greater than 0,then 1 will be return, if it is equal to 0, then 0 will be return,
-        // else -1 will be return
-        number.compareTo(zero)
+        val sgxQuoteVerifier = new SGXQuoteVerifierImpl()
+        val result = sgxQuoteVerifier.sdkVerifyQuote(quote)
+        result
     }
 
 }

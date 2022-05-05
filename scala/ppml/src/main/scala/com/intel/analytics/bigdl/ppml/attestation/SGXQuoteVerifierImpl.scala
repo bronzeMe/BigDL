@@ -18,4 +18,9 @@ package com.intel.analytics.bigdl.ppml.attestation
 
 class SGXQuoteVerifierImpl extends QuoteVerifier with Serializable {
 
+    def sdkVerifyQuote(quote: Array[Byte]): Int = {
+        // BigDL-core com.intel.analytics.bigdl.ppml.attestation.Attestation 
+        val result = Attestation.sdkVerifyQuote(quote)
+        result
+    }
 }
